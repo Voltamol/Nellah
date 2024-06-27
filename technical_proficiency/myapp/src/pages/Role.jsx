@@ -25,6 +25,12 @@ const links = [
       count: 0,
       href: '/contact',
     },
+    {
+        text: 'bulk upload',
+        icon: 'cloud-upload-outline',
+        count: 0,
+        href: '/bulk-upload',
+      },
   ];
 const Role=()=>{
     return(
