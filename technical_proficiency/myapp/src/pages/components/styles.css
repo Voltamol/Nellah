@@ -1,9 +1,3 @@
-.upload-deco{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px dashed;
-    width: 400px;
-    height: 300px;
-    border-radius: 15px;
+.hidden{
+    display: none;
 }

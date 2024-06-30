@@ -1,10 +1,5 @@
 import CustomLink from './nav-link';
 import { BrowserRouter as Router,Route,Routes,Link } from 'react-router-dom';
-import Department from '../department';
-import Company from '../company';
-import Employee from '../employee';
-import Duty from '../duty';
-import Role from '../Role';
 const Navbar = (props) => {
     const links=props.links;
     console.log(`links:${links}`)
