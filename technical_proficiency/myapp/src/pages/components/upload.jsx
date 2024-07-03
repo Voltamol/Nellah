@@ -8,6 +8,7 @@ const Upload=()=>{
             const form=e.target;
             const formData = new FormData();
             formData.append('csv_file', form.csv.files[0]);
+            form.reset();
             try {
                 const response = await fetch(host, {
                   method: 'POST',
@@ -17,11 +18,12 @@ const Upload=()=>{
                 if (response.ok) {
                   return alert('File uploaded successfully');
                 } else {
-                  console.error('Error uploading file');
+                  return alert('Error uploading file');
                 }
               } catch (error) {
-                console.error('Error:', error);
+                return alert('Error:', error);
             }
+            
             
         }}>
             <div className="container">
