@@ -11,21 +11,22 @@ const Department = () => {
     const fetchData = async () => {
       try {
         const references = await getData('companies');
-        console.log(references);
-        setCompanies(Object.values(references));
+        let reference_list=Object.values(references)
+        setCompanies(Object.values(reference_list));
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
   }, []);
-
+  const fields=['company', 'name'];
+  const host='http://127.0.0.1:8000/api/department'
   return (
     <>
       <Navbar heading="department" current="departments" />
-      <form action="" method="post">
+      <form method="post" action='' onSubmit={(e)=>{handleSubmit(host,e,fields)}}>
         <SelectField options={companies} title="select company" />
-        <AddGroup placeholder="enter department name" />
+        <AddGroup placeholder="enter department name" name="name" />
       </form>
     </>
   );

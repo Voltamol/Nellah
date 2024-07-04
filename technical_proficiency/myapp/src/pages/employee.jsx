@@ -2,15 +2,27 @@ import EmployeeFields from "./components/employee-fields";
 import Navbar from './components/navbar';
 import SelectField from './components/select_field';
 import { getData } from './components/functions/handleSubmit';
+import { useState, useEffect } from 'react';
 const Employee=()=>{
-    const host='http://127.0.0.1:8000/api/company';
-    const fields=['department', 'name', 'phone', 'id_num'];
-    const references=getData('employees');
+    const [departments, setDepartments] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const references = await getData('departments');
+        let reference_list=Object.values(references)
+        setDepartments(Object.values(reference_list));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
     return(
         <>
             <Navbar heading="employee" current="employees"/>
             <form method="post" action="" >
-                <SelectField options={references} title="select department" />
+                <SelectField options={departments} title="select department" />
                 <EmployeeFields entity="Employee"/>
             </form>
             

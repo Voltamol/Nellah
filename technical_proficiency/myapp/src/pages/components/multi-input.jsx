@@ -6,8 +6,6 @@ const MultiInput=(props)=>{
     const references=getData(props.reference);
     return(
         <div className="container" method="post" target="" onSubmit={(e)=>{handleSubmit(host,e,fields)}}>
-            <SelectField options={references} title="select company" />
-            <br />
             <div className="input-group flex-nowrap">
                 <input type="text" name={props.field1} className="form-control" placeholder={props.field1} aria-label={props.field1} aria-describedby="addon-wrapping"></input>
             </div>
